@@ -12,4 +12,5 @@ jobs:
     - run: tree . /a /f
     - uses: actions/upload-artifact@v2
       with:
+        name: csharp_ts
         path: ts.exe
