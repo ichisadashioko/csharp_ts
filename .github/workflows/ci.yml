@@ -5,8 +5,10 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
-    - run: tree /a /f C:\Windows\Microsoft.NET\Framework64\v3.5
-    - run: C:\Windows\Microsoft.NET\Framework64\v3.5\csc.exe /optimize /target:winexe /platform:x64 /out:ts.exe Program.cs
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.7.9'
+    - run: python compile_cs.py
     - run: tree . /a /f
     - uses: actions/upload-artifact@v2
       with:
