@@ -24,4 +24,4 @@ stdout_bs, stderr_bs = sp.communicate()
 sys.stdout.buffer.write(stdout_bs)
 sys.stderr.buffer.write(stderr_bs)
 
-os.exit(sp.returncode)
+sys.exit(sp.returncode)
