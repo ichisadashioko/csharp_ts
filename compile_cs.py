@@ -17,7 +17,10 @@ if dotnet_v4_root_dirname is None:
 csc_filepath = os.path.join(base_filepath, dotnet_v4_root_dirname, 'csc.exe')
 pwd = os.path.abspath(os.getcwd())
 output_filepath = os.path.join(pwd, 'ts.exe')
-compile_command = f'{csc_filepath} /optimize /target:winexe /platform:x64 /out:"{output_filepath}" Program.cs'
+source_code_filepath = os.path.join(pwd, 'Program.cs')
+# compile_command = f'{csc_filepath} /optimize /target:exe /platform:x64 /out:"{output_filepath}" "{source_code_filepath}"'
+compile_command = f'{csc_filepath} /target:exe /platform:x64 /out:"{output_filepath}" "{source_code_filepath}"'
+print(compile_command)
 sp = subprocess.Popen(compile_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 stdout_bs, stderr_bs = sp.communicate()
 
