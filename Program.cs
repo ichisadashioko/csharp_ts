@@ -10,6 +10,8 @@ public class Program {
       Console.WriteLine(ex.Message);
     }
   }
+
+  [STAThread]
   public static void Main() {
     long unix_ts = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
     string ts_s = unix_ts.ToString();
